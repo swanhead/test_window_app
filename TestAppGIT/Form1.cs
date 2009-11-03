@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace TestAppGIT
 {
@@ -16,9 +17,14 @@ namespace TestAppGIT
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Hello World!");
+            if (string.IsNullOrWhiteSpace(textBox1.Text))
+                throw new Exception("Name cannot be blank");
+            if (textBox1.Text.Any<char>(x => Char.IsNumber(x) == true))
+                throw new Exception("Name cannot contain a number!");
+
+            MessageBox.Show(String.Format("Hello {0}!", textBox1.Text));
         }
     }
 }
