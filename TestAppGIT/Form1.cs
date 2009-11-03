@@ -24,7 +24,7 @@ namespace TestAppGIT
             if (textBox1.Text.Any<char>(x => Char.IsNumber(x) == true))
                 throw new Exception("Name cannot contain a number!");
 
-            MessageBox.Show(String.Format("Hello {0}!", textBox1.Text));
+            MessageBox.Show(String.Format("Hello {0}!", textBox1.Text)); 
         }
     }
 }
